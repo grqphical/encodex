@@ -1,4 +1,5 @@
 # Encodex
+![example workflow](https://github.com/grqphical07/encodex/actions/workflows/rust.yml/badge.svg)
 
 A simple CLI tool to encode text
 
