@@ -27,7 +27,7 @@ mod tests {
         let test_data = "Hello World";
         let expected = "1001000 1100101 1101100 1101100 1101111 100000 1010111 1101111 1110010 1101100 1100100";
 
-        assert_eq!(encodings::binary::encode(test_data.as_bytes()), expected)
+        assert_eq!(encodings::binary::encode(test_data.as_bytes(), true), expected)
     }
 
     #[test]
@@ -51,7 +51,7 @@ mod tests {
         let test_data = "Hello World";
         let expected = "72 101 108 108 111 32 87 111 114 108 100";
 
-        assert_eq!(encodings::bytes::encode(test_data.as_bytes()), expected)
+        assert_eq!(encodings::bytes::encode(test_data.as_bytes(), true), expected)
     }
 
     #[test]
@@ -109,7 +109,7 @@ enum Encodings {
 
 /// Structure of how command line args should be parsed
 #[derive(Parser, Debug)]
-#[command(author = "grqphical07", version = "0.1.0", about = "A simple tool to encode strings in different formats", long_about = None)]
+#[command(version, author = "grqphical07", about = "A simple tool to encode strings in different formats", long_about = None)]
 struct Cli {
     /// Optional text to encode
     text: Option<String>,
@@ -125,6 +125,10 @@ struct Cli {
     /// What encoding format do you wish to use
     #[arg(short, long)]
     encoding: Encodings,
+
+    /// Whether or not the value should be formatted
+    #[arg(long)]
+    formatted: bool,
 }
 
 fn main() {
@@ -187,14 +191,14 @@ fn main() {
             if cli.decode {
                 println!("{}", bytes::decode(text))
             } else {
-                println!("{}", bytes::encode(text.as_bytes()))
+                println!("{}", bytes::encode(text.as_bytes(), cli.formatted))
             }
         }
         Encodings::Binary => {
             if cli.decode {
                 println!("{}", binary::decode(text))
             } else {
-                println!("{}", binary::encode(text.as_bytes()))
+                println!("{}", binary::encode(text.as_bytes(), cli.formatted))
             }
         }
     }

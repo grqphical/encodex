@@ -1,9 +1,14 @@
 use crate::{handle_error, EXIT_INVALID_DATA};
 
-pub fn encode(data: &[u8]) -> String {
+pub fn encode(data: &[u8], formatted: bool) -> String {
     let mut output = String::new();
     for byte in data {
-        output.push_str(&format!("{} ", byte))
+        if formatted {
+            output.push_str(&format!("{} ", byte))
+        } else {
+            output.push_str(&format!("{}", byte))
+        }
+        
     }
 
     output = output.trim_end().into();

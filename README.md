@@ -38,3 +38,7 @@ Currently encodex supports 4 formats
 | Binary      | binary | 1001000 1100101 1101100 1101100 1101111 100000 1010111 1101111 1110010 1101100 1100100 |
 | Bytes       | bytes  | 72 101 108 108 111 32 87 111 114 108 100                                               |
 | Hexadecimal | hex    | 48656c6c6f20576f726c64                                                                 |
+
+## Changelog
+
+[Changelog](https://github.com/grqphical07/encodex/Changelog.md)
