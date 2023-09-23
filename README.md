@@ -7,7 +7,7 @@ A simple CLI tool to encode text
 
 Clone this repo then run
 ```bash
-$ cargo install
+$ cargo install --path .
 ```
 
 ## Usage
