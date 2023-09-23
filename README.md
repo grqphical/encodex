@@ -41,4 +41,4 @@ Currently encodex supports 4 formats
 
 ## Changelog
 
-[Changelog](https://github.com/grqphical07/encodex/Changelog.md)
+[Changelog](https://github.com/grqphical07/encodex/blob/master/Changelog.md)
